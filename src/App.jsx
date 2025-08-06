@@ -15,10 +15,19 @@ function App() {
   return (
     <div style={styles.container}>
       <h1>🪙 Coin Toss</h1>
-      <button onClick={tossCoin} style={styles.button}>Toss</button>
+
+      <div
+        style={styles.coin}
+        onClick={tossCoin}
+        title="Click to toss"
+      >
+        🪙
+      </div>
+
       {result && <h2>Result: {result}</h2>}
+
       <h3>History:</h3>
-      <ul>
+      <ul style={styles.list}>
         {history.map((item, index) => (
           <li key={index}>🎯 {item}</li>
         ))}
@@ -31,13 +40,19 @@ const styles = {
   container: {
     fontFamily: 'Arial',
     textAlign: 'center',
-    marginTop: '50px'
+    marginTop: '50px',
   },
-  button: {
-    fontSize: '18px',
-    padding: '10px 20px',
-    cursor: 'pointer'
-  }
+  coin: {
+    fontSize: '100px',
+    cursor: 'pointer',
+    margin: '20px auto',
+    transition: 'transform 0.3s ease-in-out',
+    userSelect: 'none',
+  },
+  list: {
+    listStyle: 'none',
+    padding: 0,
+  },
 };
 
 export default App;
